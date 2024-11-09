@@ -13,9 +13,15 @@ from apps import home
 from apps.adopt import adopt
 from apps.companyInfo import contactUs, faqs, ourStory
 from apps.donate import donate
-from apps.MeetTheRescues import meetTheRescues
+from apps.MeetTheRescues import meetTheRescues, mtrCat, mtrDog
+from apps.MeetTheRescues.dogProfiles import Alpha
+from apps.MeetTheRescues.catProfiles import Rho
 from apps.register import register
+from apps.payment import payment
 from apps.signIn import signIn
+from apps.signIn.customer import accountProfile, adoptionApp, paymentHistory
+from apps.signIn.customer.accountProfileEdit import accountProfileEdit, accountProfileEditDwelling, accountProfileEditPassword
+from apps.signIn.admin import paymentLog, rescuesManagement, viewAdoptions
 #from apps.headnfootTemplate import create_footer
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -63,9 +69,20 @@ def displaypage (pathname):
         
         elif pathname == '/donate':
             returnlayout = donate.layout
+            
+        elif pathname == '/payment':
+            returnlayout = payment.layout
 
         elif pathname == '/meettherescues':
             returnlayout = meetTheRescues.layout
+        elif pathname == '/meettherescues/dogs':
+            returnlayout = mtrDog.layout
+        elif pathname == '/meettherescues/dogs/Alpha':
+            returnlayout = Alpha.layout
+        elif pathname == '/meettherescues/cats':
+            returnlayout = mtrCat.layout
+        elif pathname == '/meettherescues/cats/Rho':
+            returnlayout = Rho.layout
 
         elif pathname == '/ourstory':
             returnlayout = ourStory.layout
@@ -81,6 +98,27 @@ def displaypage (pathname):
 
         elif pathname == '/register':
             returnlayout = register.layout
+
+        elif pathname == '/accountProfile':
+            returnlayout = accountProfile.layout
+        elif pathname == '/accountProfile/edit/personal':
+            returnlayout = accountProfileEdit.layout
+        elif pathname == '/accountProfile/edit/dwelling':
+            returnlayout = accountProfileEditDwelling.layout
+        elif pathname == '/accountProfile/edit/password':
+            returnlayout = accountProfileEditPassword.layout
+        elif pathname == '/adoptionApp':
+            returnlayout = adoptionApp.layout
+        elif pathname == '/paymentHistory':
+            returnlayout = paymentHistory.layout
+        
+        elif pathname == '/viewAdoptions':
+            returnlayout = viewAdoptions.layout
+        elif pathname == '/rescuesManagement':
+            returnlayout = rescuesManagement.layout
+        elif pathname == '/paymentLog':
+            returnlayout = paymentLog.layout
+            
 
         else:
             returnlayout = 'error404'
