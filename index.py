@@ -21,7 +21,7 @@ from apps.payment import payment
 from apps.signIn import signIn
 from apps.signIn.customer import accountProfile, adoptionApp, paymentHistory
 from apps.signIn.customer.accountProfileEdit import accountProfileEdit, accountProfileEditDwelling, accountProfileEditPassword
-from apps.signIn.admin import paymentLog, rescuesManagement, viewAdoptions
+from apps.signIn.admin import paymentLog, paymentLogAdoption, paymentLogDonation, paymentLogReport, rescueManagement, rescueManagementAdd, rescueManagementEdit, viewAdoptions, viewAdoptionsComplete
 #from apps.headnfootTemplate import create_footer
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -99,6 +99,7 @@ def displaypage (pathname):
         elif pathname == '/register':
             returnlayout = register.layout
 
+        #CUSTOMER SIDE BRANCH
         elif pathname == '/accountProfile':
             returnlayout = accountProfile.layout
         elif pathname == '/accountProfile/edit/personal':
@@ -107,17 +108,34 @@ def displaypage (pathname):
             returnlayout = accountProfileEditDwelling.layout
         elif pathname == '/accountProfile/edit/password':
             returnlayout = accountProfileEditPassword.layout
+
         elif pathname == '/adoptionApp':
             returnlayout = adoptionApp.layout
+
         elif pathname == '/paymentHistory':
             returnlayout = paymentHistory.layout
         
+        #ADMIN SIDE BRANCH
         elif pathname == '/viewAdoptions':
             returnlayout = viewAdoptions.layout
+        elif pathname == '/viewAdoptions/fullview':
+            returnlayout = viewAdoptionsComplete.layout
+
         elif pathname == '/rescuesManagement':
-            returnlayout = rescuesManagement.layout
+            returnlayout = rescueManagement.layout
+        elif pathname == '/rescuesManagement/add':
+            returnlayout = rescueManagementAdd.layout
+        elif pathname == '/rescuesManagement/edit':
+            returnlayout = rescueManagementEdit.layout            
+        
         elif pathname == '/paymentLog':
             returnlayout = paymentLog.layout
+        elif pathname == '/paymentLog/donation':
+            returnlayout = paymentLogDonation.layout
+        elif pathname == '/paymentLog/adoption':
+            returnlayout = paymentLogAdoption.layout
+        elif pathname == '/paymentLog/generateReport':
+            returnlayout = paymentLogReport.layout
             
 
         else:
