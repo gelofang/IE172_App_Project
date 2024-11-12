@@ -47,7 +47,7 @@ layout=html.Div(
                                     html.Td("DOG 1"),
                                     html.Td("11-01-2024 13:00:00"),
                                     html.Td("PENDING"),
-                                    html.Td(html.Button("Payment", className="btn btn-warning")),
+                                    html.Td(dbc.Button("Payment", href="/payment", className="btn btn-warning")),
                                     html.Td("PENDING")
                                 ])
                             )
