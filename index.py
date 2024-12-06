@@ -21,7 +21,7 @@ from apps.payment import payment
 from apps.signIn import signIn
 from apps.signIn.customer import accountProfile, adoptionApp, paymentHistory
 from apps.signIn.customer.accountProfileEdit import accountProfileEdit, accountProfileEditDwelling, accountProfileEditPassword
-from apps.signIn.admin import paymentLog, paymentLogAdoption, paymentLogDonation, paymentLogReport, rescueManagement, rescueManagementAdd, rescueManagementEdit, viewAdoptions, viewAdoptionsComplete
+from apps.signIn.admin import paymentLog, paymentLogAdoption, paymentLogDonation, paymentLogReport, rescueManagement, rescueManagementProfile, viewAdoptions, viewAdoptionsComplete
 #from apps.headnfootTemplate import create_footer
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -123,10 +123,8 @@ def displaypage (pathname):
 
         elif pathname == '/rescuesManagement':
             returnlayout = rescueManagement.layout
-        elif pathname == '/rescuesManagement/add':
-            returnlayout = rescueManagementAdd.layout
-        elif pathname == '/rescuesManagement/edit':
-            returnlayout = rescueManagementEdit.layout            
+        elif pathname == '/rescuesManagementProfile':
+            returnlayout = rescueManagementProfile.layout         
         
         elif pathname == '/paymentLog':
             returnlayout = paymentLog.layout
